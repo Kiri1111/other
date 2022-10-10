@@ -170,18 +170,18 @@ function App() {
     return (
         <div className="App">
             {
-                todo.map((tl, index) => {
-                    let allTodolistTasks = tl.tasks;
-                    let tasksForTodolist = allTodolistTasks;
-
-                    if (tl.filter === "active") {
-                        tasksForTodolist = allTodolistTasks.filter(t => t.isDone === false);
-                    }
-                    if (tl.filter === "completed") {
-                        tasksForTodolist = allTodolistTasks.filter(t => t.isDone === true);
-                    }
-
-                    return (
+                // todo.map((tl, index) => {
+                //     let allTodolistTasks = tl.tasks;
+                //     let tasksForTodolist = allTodolistTasks;
+                //
+                //     if (tl.filter === "active") {
+                //         tasksForTodolist = allTodolistTasks.filter(t => t.isDone === false);
+                //     }
+                //     if (tl.filter === "completed") {
+                //         tasksForTodolist = allTodolistTasks.filter(t => t.isDone === true);
+                //     }
+                //
+                //     return (
                         <div>
                             <Counter/>
                             <Todolist

@@ -30,58 +30,58 @@ function App() {
                 {taskId: v1(), title: "HTML&CSS", isDone: true},
                 {taskId: v1(), title: "JS", isDone: true}
             ],
-            students: [
-                'Rick Kane',
-                'Finnlay Bentley',
-                'Samia North',
-                'Isaac Morton',
-                'Lily-Ann Clifford',
-                'Thalia Park',
-                'Sapphire Cruz',
-                'Cieran Vazquez',
-                'Anya Estes',
-                'Dominika Field',
-                'Rosanna Chung',
-                'Safiyah Davey',
-                'Ryley Beasley',
-                'Kalvin Trejo',
-                'Evie-Mae Farrell',
-                'Juliet Valencia',
-                'Astrid Austin',
-                'Lyle Montgomery',
-                'Nisha Mora',
-                'Kylie Callaghan',
-                'Star Wilks',
-                'Marissa Colley',
-                'Asa Fuller',
-                'Leigh Kemp',
-                'Avleen Dawson',
-                'Sammy Bonilla',
-                'Acacia Becker',
-                'Coral Shepherd',
-                'Melina Molina',
-                'Kiran Bailey',
-                'Clara Escobar',
-                'Alexandru Horn',
-                'Brandon-Lee Mercado',
-                'Elouise Weston',
-                'King Long',
-                'Kerri Searle',
-                'Kanye Hamer',
-                'Elwood Benitez',
-                'Mikail Whitaker',
-                'Bobby Hardy',
-                'Talha Ferry',
-                'Priscilla Landry',
-                'Olivia-Grace Cain',
-                'Kiaan Wallace',
-                'Wesley Padilla90',
-                'Ella-Grace Wooten91',
-                'Kaif Molloy92',
-                'Kamal Broadhurst93',
-                'Bianca Ferrell94',
-                'Micheal Talbot95',
-            ]
+            // students: [
+            //     'Rick Kane',
+            //     'Finnlay Bentley',
+            //     'Samia North',
+            //     'Isaac Morton',
+            //     'Lily-Ann Clifford',
+            //     'Thalia Park',
+            //     'Sapphire Cruz',
+            //     'Cieran Vazquez',
+            //     'Anya Estes',
+            //     'Dominika Field',
+            //     'Rosanna Chung',
+            //     'Safiyah Davey',
+            //     'Ryley Beasley',
+            //     'Kalvin Trejo',
+            //     'Evie-Mae Farrell',
+            //     'Juliet Valencia',
+            //     'Astrid Austin',
+            //     'Lyle Montgomery',
+            //     'Nisha Mora',
+            //     'Kylie Callaghan',
+            //     'Star Wilks',
+            //     'Marissa Colley',
+            //     'Asa Fuller',
+            //     'Leigh Kemp',
+            //     'Avleen Dawson',
+            //     'Sammy Bonilla',
+            //     'Acacia Becker',
+            //     'Coral Shepherd',
+            //     'Melina Molina',
+            //     'Kiran Bailey',
+            //     'Clara Escobar',
+            //     'Alexandru Horn',
+            //     'Brandon-Lee Mercado',
+            //     'Elouise Weston',
+            //     'King Long',
+            //     'Kerri Searle',
+            //     'Kanye Hamer',
+            //     'Elwood Benitez',
+            //     'Mikail Whitaker',
+            //     'Bobby Hardy',
+            //     'Talha Ferry',
+            //     'Priscilla Landry',
+            //     'Olivia-Grace Cain',
+            //     'Kiaan Wallace',
+            //     'Wesley Padilla90',
+            //     'Ella-Grace Wooten91',
+            //     'Kaif Molloy92',
+            //     'Kamal Broadhurst93',
+            //     'Bianca Ferrell94',
+            //     'Micheal Talbot95',
+            // ]
         },
         {
             title: "What to do",
@@ -170,18 +170,18 @@ function App() {
     return (
         <div className="App">
             {
-                // todo.map((tl, index) => {
-                //     let allTodolistTasks = tl.tasks;
-                //     let tasksForTodolist = allTodolistTasks;
-                //
-                //     if (tl.filter === "active") {
-                //         tasksForTodolist = allTodolistTasks.filter(t => t.isDone === false);
-                //     }
-                //     if (tl.filter === "completed") {
-                //         tasksForTodolist = allTodolistTasks.filter(t => t.isDone === true);
-                //     }
-                //
-                //     return (
+                todo.map((tl, index) => {
+                    let allTodolistTasks = tl.tasks;
+                    let tasksForTodolist = allTodolistTasks;
+
+                    if (tl.filter === "active") {
+                        tasksForTodolist = allTodolistTasks.filter(t => t.isDone === false);
+                    }
+                    if (tl.filter === "completed") {
+                        tasksForTodolist = allTodolistTasks.filter(t => t.isDone === true);
+                    }
+
+                    return (
                         <div>
                             <Counter/>
                             <Todolist

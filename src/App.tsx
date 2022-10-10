@@ -184,19 +184,19 @@ function App() {
                     return (
                         <div>
                             <Counter/>
-                            {/*<Todolist*/}
-                            {/*    key={index}*/}
-                            {/*    id={index}*/}
-                            {/*    title={tl.title}*/}
-                            {/*    tasks={tasksForTodolist}*/}
-                            {/*    students={tl.students}*/}
-                            {/*    removeTask={removeTask}*/}
-                            {/*    changeFilter={changeFilter}*/}
-                            {/*    addTask={addTask}*/}
-                            {/*    changeTaskStatus={changeStatus}*/}
-                            {/*    filter={tl.filter}*/}
-                            {/*    removeTodolist={removeTodolist}*/}
-                            {/*/>*/}
+                            <Todolist
+                                key={index}
+                                id={index}
+                                title={tl.title}
+                                tasks={tasksForTodolist}
+                                students={tl.students}
+                                removeTask={removeTask}
+                                changeFilter={changeFilter}
+                                addTask={addTask}
+                                changeTaskStatus={changeStatus}
+                                filter={tl.filter}
+                                removeTodolist={removeTodolist}
+                            />
                         </div>
                     )
                 })

@@ -2,6 +2,8 @@ import React from 'react';
 import React1, {MouseEvent} from "react";
 import './App.css';
 import {Button} from "./Components/Button";
+import {Filter} from "./Components/Filter";
+import any = jasmine.any;
 
 function App() {
     // const myFirstSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
@@ -56,6 +58,7 @@ function App() {
 
             <Button name={'YouTubeChanel-1'} callBack={() => Button1Foo('I am Vasya', 21)}/>
             <Button name={'YouTubeChanel-2'} callBack={() => Button2Foo('I am Ivan')}/>
+            <Filter/>
         </div>
     );
 }

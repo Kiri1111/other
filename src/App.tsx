@@ -1,11 +1,10 @@
-import React from 'react';
-import React1, {MouseEvent} from "react";
+import React, {useState} from 'react';
 import './App.css';
 import {Button} from "./Components/Button";
 import {Filterrrr} from "./Components/Filterrrr";
-import any = jasmine.any;
 import {Cars} from "./Components/Map";
 import {FType} from "./Components/Filterrrr";
+import {FullInput} from './Components/FullInput';
 
 // const topCars = [
 //     {manufacturer: 'BMW', model: 'm5cs'},
@@ -40,10 +39,38 @@ function App() {
     //     console.log(sub)
     // }
 
+    let [message, setMessage] = useState([
+        {message: 'message1'},
+        {message: 'message2'},
+        {message: 'message3'},
+    ])
+    const sentMessage = (title: string) => {
+        let newMessage = {message: title};
+        setMessage([newMessage, ...message])
+
+
+    }
+
     return (
-        <div>
-            <Filterrrr name={'Money, money, money!!!'}/>
+        <div className={'App'}>
+            <div>
+                <FullInput sentMessage={sentMessage}/>
+
+            </div>
+            {message.map((el, index) => {
+                return (
+                    <div key={index}>{el.message}</div>
+                )
+            })}
+
+
         </div>
+
+
+
+        // <div>
+        //     <Filterrrr name={'Money, money, money!!!'}/>
+        // </div>
 
         // <div className="App">
         //     <button onClick={(event) => {

@@ -1,8 +1,11 @@
 import React, {useState} from "react";
 
 type FilterType = 'all' | 'RUBLS' | 'Dollars'
+export type FType = {
+    name: string
+}
 
-export function Filter() {
+export function Filterrrr(props: FType) {
     const [money, setMoney] = useState([
         {banknots: 'Dollars', value: 100, number: ' a1234567890'},
         {banknots: 'Dollars', value: 50, number: ' z1234567890'},
@@ -30,6 +33,9 @@ export function Filter() {
         }
         return (
             <>
+                <div>
+                    {props.name}
+                </div>
                 <ul>
                     {currentMoney.map((objFromMoneyArr, index) => {
                         return (

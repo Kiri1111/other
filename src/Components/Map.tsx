@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 type  CarsType = {
     title: string
@@ -19,30 +19,13 @@ export function Cars(props: CarsType) {
             <ul>
                 {props.topCars.map((t) => {
                     return (
-                        <li key={t.model}>
+                        <li>
                             {t.model}{t.manufacturer}
                         </li>
                     )
                 })
-
-
                 }
-
             </ul>
-
-
         </div>
-    )
+    );
 }
-
-
-
-
-
-
-
-
-
-
-
-

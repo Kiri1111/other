@@ -2,15 +2,16 @@ import React from 'react';
 import React1, {MouseEvent} from "react";
 import './App.css';
 import {Button} from "./Components/Button";
-import {Filter} from "./Components/Filter";
+import {Filterrrr} from "./Components/Filterrrr";
 import any = jasmine.any;
 import {Cars} from "./Components/Map";
+import {FType} from "./Components/Filterrrr";
 
-const topCars = [
-    {manufacturer: 'BMW', model: 'm5cs'},
-    {manufacturer: 'Mercedes', model: 'e63s'},
-    {manufacturer: 'Audi', model: 'rs6'}
-]
+// const topCars = [
+//     {manufacturer: 'BMW', model: 'm5cs'},
+//     {manufacturer: 'Mercedes', model: 'e63s'},
+//     {manufacturer: 'Audi', model: 'rs6'}
+// ]
 
 function App() {
     // const myFirstSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
@@ -40,6 +41,10 @@ function App() {
     // }
 
     return (
+        <div>
+            <Filterrrr name={'Money, money, money!!!'}/>
+        </div>
+
         // <div className="App">
         //     <button onClick={(event) => {
         //         console.log('hello')
@@ -67,12 +72,12 @@ function App() {
         //     <Button name={'YouTubeChanel-2'} callBack={() => Button2Foo('I am Ivan')}/>
         //     {/*<Filter/>*/}
         // </div>
-        <div className='Map'>
-            <Cars title='Ta4ki'
-                  topCars={topCars}
-            />
-        </div>
-    );
+        // <div className='Map'>
+        //     <Cars title='Ta4ki'
+        //           topCars={topCars}
+        //     />
+        // </div>
+    )
 }
 
 

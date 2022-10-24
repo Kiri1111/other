@@ -11,6 +11,8 @@ export const Counter = (props: any) => {
     let onClickHandler = () => {
         setCount(count + 1)
     }
-    return <div onClick={onClickHandler}><h1>{count}</h1></div>
+    return <div onClick={onClickHandler}><h1>{count}</h1>
+        <div></div>
+    </div>
 
 }

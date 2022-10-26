@@ -1,111 +1,203 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Button} from "./Components/Button";
-import {Filterrrr} from "./Components/Filterrrr";
-import {Cars} from "./Components/Map";
-import {FType} from "./Components/Filterrrr";
-import {FullInput} from './Components/FullInput';
+import {Todolist} from './Todolist';
+import {v1} from 'uuid';
 
-// const topCars = [
-//     {manufacturer: 'BMW', model: 'm5cs'},
-//     {manufacturer: 'Mercedes', model: 'e63s'},
-//     {manufacturer: 'Audi', model: 'rs6'}
-// ]
+
+type ObjectType = {
+    title: string
+    filter: FilterValuesType
+    tasks: Array<TasksType>
+    students: Array<string>
+}
+export type TasksType = {
+    taskId: string
+    title: string
+    isDone: boolean
+}
+
+export type FilterValuesType = "all" | "active" | "completed";
+
 
 function App() {
-    // const myFirstSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
-    //     console.log('hello im Vasya')
-    // }
-    // const mySecondSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
-    //     console.log('hello im Ivan')
-    // }
 
-    // const onClickHandler = (name: string) => {
-    //     console.log(name)
-    // }
-    // const foo1 = () => {
-    //     console.log(100200)
-    // }
-    //
-    // const foo2 = (cifra: number) => {
-    //     console.log(cifra)
-    // }
-
-    // const Button1Foo = (sub: string, age: number) => {
-    //     console.log(sub, age)
-    // }
-    //
-    // const Button2Foo = (sub: string) => {
-    //     console.log(sub)
-    // }
-
-    let [message, setMessage] = useState([
-        {message: 'message1'},
-        {message: 'message2'},
-        {message: 'message3'},
+    const [todo, setTodo] = useState<Array<ObjectType>>([
+        {
+            title: "What to learn",
+            filter: "all",
+            tasks: [
+                {taskId: v1(), title: "HTML&CSS", isDone: true},
+                {taskId: v1(), title: "JS", isDone: true}
+            ],
+            students: [
+                'Rick Kane',
+                'Finnlay Bentley',
+                'Samia North',
+                'Isaac Morton',
+                'Lily-Ann Clifford',
+                'Thalia Park',
+                'Sapphire Cruz',
+                'Cieran Vazquez',
+                'Anya Estes',
+                'Dominika Field',
+                'Rosanna Chung',
+                'Safiyah Davey',
+                'Ryley Beasley',
+                'Kalvin Trejo',
+                'Evie-Mae Farrell',
+                'Juliet Valencia',
+                'Astrid Austin',
+                'Lyle Montgomery',
+                'Nisha Mora',
+                'Kylie Callaghan',
+                'Star Wilks',
+                'Marissa Colley',
+                'Asa Fuller',
+                'Leigh Kemp',
+                'Avleen Dawson',
+                'Sammy Bonilla',
+                'Acacia Becker',
+                'Coral Shepherd',
+                'Melina Molina',
+                'Kiran Bailey',
+                'Clara Escobar',
+                'Alexandru Horn',
+                'Brandon-Lee Mercado',
+                'Elouise Weston',
+                'King Long',
+                'Kerri Searle',
+                'Kanye Hamer',
+                'Elwood Benitez',
+                'Mikail Whitaker',
+                'Bobby Hardy',
+                'Talha Ferry',
+                'Priscilla Landry',
+                'Olivia-Grace Cain',
+                'Kiaan Wallace',
+                'Wesley Padilla90',
+                'Ella-Grace Wooten91',
+                'Kaif Molloy92',
+                'Kamal Broadhurst93',
+                'Bianca Ferrell94',
+                'Micheal Talbot95',
+            ]
+        },
+        {
+            title: "What to do",
+            filter: "all",
+            tasks: [
+                {taskId: v1(), title: "HTML&CSS2", isDone: true},
+                {taskId: v1(), title: "JS2", isDone: true}
+            ],
+            students: [
+                'Jago Wormald1',
+                'Saul Milne2',
+                'Aariz Hester3',
+                'Dion Reeve4',
+                'Anisa Ortega5',
+                'Blade Cisneros6',
+                'Malaikah Phelps7',
+                'Zeeshan Gallagher8',
+                'Isobella Vo9',
+                'Rizwan Mathis10',
+                'Menaal Leach11',
+                'Kian Walton12',
+                'Orion Lamb13',
+                'Faizah Huynh14',
+                'Crystal Vaughan15',
+                'Vivien Hickman16',
+                'Stuart Lu17',
+                'Karol Davison18',
+                'Dario Burns19',
+                'Chloe Rich20',
+                'Martyna Felix',
+                'Nida Glass',
+                'Maeve Miles',
+                'Hasnain Puckett',
+                'Ayman Cano',
+                'Safwan Perry',
+                'Fox Kelly',
+                'Louise Barlow',
+                'Malaki Mcgill',
+                'Leanna Cline',
+                'Willard Hodge',
+                'Amelia Dorsey',
+                'Kiah Porter',
+                'Jeanne Daly',
+                'Mohsin Armstrong',
+                'Laurie Rangel',
+                'Princess Tierney',
+                'Kasim Kendall',
+                'Darryl Cope',
+                'Elysha Ray',
+                'Liyana Harris',
+                'Kashif Blackburn',
+                'Atif Zimmerman',
+                'Sila Hartley',
+                'Ralphie Hebert',
+            ]
+        }
     ])
-    const sentMessage = (title: string) => {
-        let newMessage = {message: title};
-        setMessage([newMessage, ...message])
 
+    function removeTask(taskId: string, todolistId: number) {
+        setTodo(todo.map((el, index) => index === todolistId ? {
+            ...el,
+            tasks: [...el.tasks.filter(fl => fl.taskId !== taskId)]
+        } : el))
+    }
 
+    function addTask(title: string, todolistId: number) {
+        let newTask: TasksType = {taskId: v1(), title: title, isDone: false};
+        setTodo(todo.map((el, index) => index === todolistId ? {...el, tasks: [newTask, ...el.tasks]} : el))
+    }
+
+    function changeStatus(taskId: string, isDone: boolean, todolistId: number) {
+        setTodo(todo.map((el, index) => index === todolistId ? {
+            ...el,
+            tasks: el.tasks.map(m => m.taskId === taskId ? {...m, isDone: isDone} : m)
+        } : el))
+    }
+
+    function changeFilter(value: FilterValuesType, todolistId: number) {
+        setTodo(todo.map((el, index) => index === todolistId ? {...el, filter: value} : el))
+    }
+
+    function removeTodolist(todolistId: number) {
+        setTodo(todo.filter((el, index) => index !== todolistId))
     }
 
     return (
-        <div className={'App'}>
-            <div>
-                <FullInput sentMessage={sentMessage}/>
+        <div className="App">
+            {
+                todo.map((tl, index) => {
+                    let allTodolistTasks = tl.tasks;
+                    let tasksForTodolist = allTodolistTasks;
 
-            </div>
-            {message.map((el, index) => {
-                return (
-                    <div key={index}>{el.message}</div>
-                )
-            })}
+                    if (tl.filter === "active") {
+                        tasksForTodolist = allTodolistTasks.filter(t => t.isDone === false);
+                    }
+                    if (tl.filter === "completed") {
+                        tasksForTodolist = allTodolistTasks.filter(t => t.isDone === true);
+                    }
 
+                    return <Todolist
+                        key={index}
+                        id={index}
+                        title={tl.title}
+                        tasks={tasksForTodolist}
+                        students={tl.students}
+                        removeTask={removeTask}
+                        changeFilter={changeFilter}
+                        addTask={addTask}
+                        changeTaskStatus={changeStatus}
+                        filter={tl.filter}
+                        removeTodolist={removeTodolist}
+                    />
+                })
+            }
 
         </div>
-
-
-
-        // <div>
-        //     <Filterrrr name={'Money, money, money!!!'}/>
-        // </div>
-
-        // <div className="App">
-        //     <button onClick={(event) => {
-        //         console.log('hello')
-        //     }}>MyYouTubeChanel-1
-        //     </button>
-        //     <button onClick={(event: MouseEvent<HTMLButtonElement>) => onClickHandler('Ivan')
-        //     }>MyYouTubeChanel-1
-        //     </button>
-        //     <button onClick={(event: MouseEvent<HTMLButtonElement>) => onClickHandler('Vasya')
-        //     }>MyYouTubeChanel-2
-        //     </button>
-        //
-        //     <button onClick={c onClickHandler('some info')
-        //
-        //     }>MyYouTubeChanel-3
-        //     </button>
-        //
-        //     <button onClick={foo1}>1</button>
-        //     <button onClick={() => foo2(100200)}>2</button>
-        //
-        //     <button>MyYouTubeChanel-1</button>
-        //     <button>MyYouTubeChanel-2</button>
-        //
-        //     <Button name={'YouTubeChanel-1'} callBack={() => Button1Foo('I am Vasya', 21)}/>
-        //     <Button name={'YouTubeChanel-2'} callBack={() => Button2Foo('I am Ivan')}/>
-        //     {/*<Filter/>*/}
-        // </div>
-        // <div className='Map'>
-        //     <Cars title='Ta4ki'
-        //           topCars={topCars}
-        //     />
-        // </div>
-    )
+    );
 }
-
 
 export default App;

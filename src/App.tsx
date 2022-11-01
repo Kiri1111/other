@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {Todolist} from './Todolist';
 import {v1} from 'uuid';
+import {Counter} from './Countert';
 
 
 type ObjectType = {
@@ -180,19 +181,24 @@ function App() {
                         tasksForTodolist = allTodolistTasks.filter(t => t.isDone === true);
                     }
 
-                    return <Todolist
-                        key={index}
-                        id={index}
-                        title={tl.title}
-                        tasks={tasksForTodolist}
-                        students={tl.students}
-                        removeTask={removeTask}
-                        changeFilter={changeFilter}
-                        addTask={addTask}
-                        changeTaskStatus={changeStatus}
-                        filter={tl.filter}
-                        removeTodolist={removeTodolist}
-                    />
+                    return (
+                        <div>
+                            <Counter/>
+                            {/*<Todolist*/}
+                            {/*    key={index}*/}
+                            {/*    id={index}*/}
+                            {/*    title={tl.title}*/}
+                            {/*    tasks={tasksForTodolist}*/}
+                            {/*    students={tl.students}*/}
+                            {/*    removeTask={removeTask}*/}
+                            {/*    changeFilter={changeFilter}*/}
+                            {/*    addTask={addTask}*/}
+                            {/*    changeTaskStatus={changeStatus}*/}
+                            {/*    filter={tl.filter}*/}
+                            {/*    removeTodolist={removeTodolist}*/}
+                            {/*/>*/}
+                        </div>
+                    )
                 })
             }
 

@@ -1,640 +1,142 @@
 import React from 'react';
 //
 //            <h3>1 вопрос</h3>
-// type UserPropsType = {
+//
+//
+//type StudentType = {
+//     id: number
 //     name: string
-//     description: string
-// }
-// export const User: React.FC<UserPropsType> = (props) => {
-//     return <div>
-//         <h1>Имя: {props.name}</h1>
-//         //<div>Описание: {ххх}</div>
-//     </div>
 // }
 //
-// //Что нужно написать вместо ххх, что бы код работал?
-// Ans:props.description
-//           <h3>2 вопрос</h3>
-// type PagePropsType = {
-//     age: number
-//     name: string
-//     avatarUrl: string
-// }
-// const Page: React.FC<PagePropsType> = (props) => {
-//     return <User a={xxx} n={yyy} />
-// }
-// type UserPropsType = {
-//     a: number
-//     n: string
-// }
-// export const User: React.FC<UserPropsType> = (props) => {
-//     return <div>name: {props.n}, age: {props.a}</div>
+// type FriendsType = {
+//     [key: string]: Array<string>
 // }
 //
-// // Что нужно написать вместо xxx и yyy?
-// // Ответ дайте через пробел, например: blabla onClick(props)
+// export const students: Array<StudentType> = [
+//     {id: 1, name: "Bob"},
+//     {id: 2, name: "Alex"},
+//     {id: 3, name: "Ann"},
+//     {id: 4, name: "Charley"},
+// ]
 //
-//           <h3>3 вопрос</h3>
-// type UserWalletType = {
-//     title: string
-//     amount: number
-// }
-// type UserWalletPropsType = {
-//     wallet: UserWalletType
-// }
-//
-// export const UserWallet: React.FC<UserWalletPropsType> = (props) => {
-//     return <div>title: {props.wallet.title}, amount: {props.wallet.amount}</div>
+// export const friends: FriendsType = {
+//     1: ["Oliver", "Jack", "Oscar",],
+//     2: ["Jack", "Lewis", "Thomas",],
+//     3: ["William", "Michael", "Lewis",],
+//     4: ["Oscar", "James", "William",],
 // }
 //
-// export const UserMoney = () => {
-//     const wallets = [
-//         {title: 'bitcoin', amount: 1},
-//         {title: '$', amount: 100}
-//     ]
-//
-//     return <div>
-//         <UserWallet wallet={xxx} />
-//         <UserWallet wallet={yyy} />
-//     </div>
-// }
-// ANS:wallets[0] wallets[1]
-//              <h3>4 вопрос</h3>
-// import ReactDOM from 'react-dom'
-//
-// const Son = (props: any) => {
-//     return <div>
-//         I am son. My name is {props.name}
-//     </div>
+// const getMutualFriends = (st_1: StudentType, st_2: StudentType,) => {
+//     const result: Array<string> = []
+//     friends[st_1.id].forEach(f => friends[xxx].includes(f)? result.push(f): null)
+//     return result
 // }
 //
-//
-// const Father = (props: any) => {
-//     return <div>
-//         I am father. My name is {props.name}
-//         <Son name={props.sonName} />
-//     </div>
-// }
-//
-// const Granny = (props: any) => {
-//     return <div>
-//         I am granny. My name is {props.name}
-//         <Father name={props.fatherName} sonName={props.sonName} />
-//     </div>
-// }
-//
-// export const App = () => {
-//     return <div>
-//         <Granny XXX={'Бабуля'} YYY={'Батя'} ZZZ={'Сын'}/>
-//     </div>
-// }
-//
-// ReactDOM.render(<App/>,
-//     document.getElementById('root')
-// )
-//             <h3>5 вопрос</h3>
-//
-// import React, {useState} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-//
-// function UsersList() {
-//     const results = useState<Array<string>>(["Bob", "Alex", "Ann"])
-//
-//     const users = results[0]
-//     const setUsers = results[1]
-//
-//     return (
-//        <p>Тут будет список пользователей</p>
-//     )
-// }
-//
-// ReactDOM.render(
-//     <UsersList/>, document.getElementById('root')
-// );
-//
-// // Чему равно results.length?
-// ANS:2
-//
-//             <h3>6 вопрос</h3>
-// import React, {useState} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-//
-// function UsersList() {
-//     const [users, setUsers] = useState<Array<string>>(["Bob", "Alex", "Ann"])
-//     return (
-//        <p>Тут будет список пользователей</p>
-//     )
-// }
-//
-// ReactDOM.render(
-//     <UsersList/>, document.getElementById('root')
-// );
-// // Что вернёт выражение: typeof setUsers?
-// ANS:function
-//             <h3>7 вопрос</h3>
-// import React, {useState} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
+// //Дан массив студентов и структура,
+// //которая содержит список друзей каждого из студентов.
+// // Так же дана функция  getMutualFriends, проверяющая наличие общих друзей
+// // у двух выбранных студентов.
+// //Функция принимает параметром два объекта типа StudentType
+// // и возвращает массив с именами общих друзей,
+// //если они есть и пустой массив, если таковых нету.
+// // Что надо написать вместо ххх, чтобы функция работала?
+//ANS:st_2.id
+//             <h3>2 вопрос</h3>
+//import React, {useState} from "react";
 //
 // type UserType = {
 //     id: number
 //     name: string
-//     age: number
+//     status: "online" | "offline"
 // }
 //
-// function User(props: UserType) {
-//     return (
-//         <li>User {props.name}: {props.age} y.o.</li>
-//     )
+// type AddressType = {
+//     country: string
+//     city: string
+//     email: string
 // }
 //
-// function UsersList() {
-//     const state = [
-//         {id: 1, name: "Bob", age: 34},
-//         {id: 2, name: "Alex", age: 25},
-//         {id: 3, name: "Ann", age: 30},
-//         {id: 4, name: "John", age: 23},
-//     ]xx
-//     const users = [
-//         {id: 1, userName: "Bob", age: 34},
-//         {id: 2, userName: "Alex", age: 25},
-//         {id: 3, userName: "Ann", age: 30},
-//         {id: 4, userName: "John", age: 23},
-//     ]xx
-//
-//     const [usersList, setUsersList] = useState<Array<UserType>>(XXX)
-//     return (
-//         <main>
-//             <h5>User list:</h5>
-//             <p>Тут будет список пользователей</p>
-//         </main>
-//     )
+// type AdressesType = {
+//     [userID: string]: AddressType
 // }
 //
-// ReactDOM.render(
-//     <UsersList/>, document.getElementById('root')
-// );
-// // Что надо написать вместо XXX, чтобы код работал?
-// // ❗ Если мы отмапим массив, то должны увидеть данные пользователей
-// // ❗ Ответ дать минимально возможным объёмом кода
-// ANS:state
-//              <h3>8 вопрос</h3>
-// import React, {useState} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
+//
+// const users: Array<UserType> = [
+//     {id: 1, name: "Bob", status: "online"},
+//     {id: 2, name: "Alex", status: "offline"},
+//     {id: 3, name: "Ann", status: "offline"},
+// ]
+//
+// export const addresses: AdressesType = {
+//     1: {country: "Russia", city: "Moscow", email: "hey@email.com"},
+//     2: {country: "Ukraine", city: "Kiev", email: "yo@send.ua"},
+//     3: {country: "Belarus", city: "Minsk", email: "wow@gogo.ru"},
+//
+// }
+//
+// export const changeUserStatus = (userID: number, status: string) => {
+//     return users.xxx(u => u.id === userID ? {...u, status} : u)
+// }
+// // Дан список пользователей и структура, хранящая адреса пользователей.
+// // Так же дана функция changeUserStatus, которая меняет статус пользователя.
+// // Что надо написать вместо ххх, чтобы функция работала корректно?
+//ANS:map
+//            <h3>3 вопрос</h3>
+//
+//import React, {useState} from "react";
 //
 // type UserType = {
 //     id: number
 //     name: string
-//     age: number
+//     status: "online" | "offline"
 // }
 //
-// function User(props: UserType) {
-//     return (
-//         <li>User {props.name}: {props.age} y.o.</li>
-//     )
+// type AddressType = {
+//     country: string
+//     city: string
+//     email: string
 // }
 //
-// function UsersList() {
-//     const data: Array<UserType> = [
-//         {id: 1, name: "Bob", age: 25},
-//         {id: 2, name: "Alex", age: 28},
-//         {id: 3, name: "Ann", age: 23},
-//         {id: 4, name: "John", age: 30},
-//     ]
-//     const [users, setUsers] = useState<Array<UserType>>(data)
-//     // Пользователи старше 25 лет:
-//     // const olderThen25Users = users.xxx(u => u.age > 25)
-//     return (
-//         <main>
-//             <h4>User list:</h4>
-//             <ul>
-//                 {/*{ olderThen25Users.map(u => <User key={u.id} {...u}/>)}*/}
-//             </ul>
-//         </main>
-//     )
+// type AdressesType = {
+//     [userID: string]: AddressType
 // }
 //
-// ReactDOM.render(
-//     <UsersList/>, document.getElementById('root')
-// );
-// // Что надо написать вместо xxx, чтобы код работал?
-// ANS:filter
+// const users: Array<UserType> = [
+//     {id: 1, name: "Bob", status: "online"},
+//     {id: 2, name: "Alex", status: "offline"},
+//     {id: 3, name: "Ann", status: "offline"},
+// ]
 //
-//             <h3>9 вопрос</h3>
+// const addresses: AdressesType = {
+//     1: {country: "Russia", city: "Moscow", email: "hey@email.com"},
+//     2: {country: "Ukraine", city: "Kiev", email: "yo@send.ua"},
+//     3: {country: "Belarus", city: "Minsk", email: "wow@gogo.ru"},
 //
-// import React, {MouseEvent} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
+// }
 //
-// function Button() {
-//     const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-//         // console.log((typeof e) === ххх)
+// const updateUserAddress = (userID: number, key: string, newValue: string) => {
+//     return {...addresses,
+//          [userID]: {...addresses[xxx], [key]: newValue}
 //     }
-//     return <button onClick={onClickHandler} >Click</button>
 // }
+// // Дан список пользователей и структура, хранящая адреса пользователей.
+// // Так же дана функция updateUserAddress,
+// // которая обновляет указанное в параметрах поле в адресе пользователя.
+// // Пример использования функции: updateUserAddress(2, "city", "Dnepropetrovsk")
+// // Что надо написать вместо ххх, чтобы функция работала корректно?
+//
+//             <h3>4 вопрос</h3>
 //
 //
-// ReactDOM.render(
-//     <Button/>, document.getElementById('root')
-// );
-//
-// // Какой тип данных представляет аргумент функции-обработчика?
-// // Что надо написать вместо ххх, что бы в консоль вывело true?
-// //             <h3>10 вопрос</h3>
-// import React, {useState} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-//
-// type UserType = {
-//     id: number
-//     name: string
-//     age: number
-// }
-//
-// type UserPropsType = UserType & {
-//     deleteUser: (id: number) => void
-// }
-//
-// function User(props: UserPropsType) {
-//     return (
-//         <li>
-//             {/*<button onClick={() => props.deleteUser(xxx)}>x</button>*/}
-//             User {props.name}: {props.age} y.o.
-//         </li>
-//     )
-// }
-//
-// function UsersList() {
-//     const data: Array<UserType> = [
-//         {id: 1, name: "Bob", age: 25},
-//         {id: 2, name: "Alex", age: 28},
-//         {id: 3, name: "Ann", age: 23},
-//         {id: 4, name: "John", age: 30},
-//     ]
-//     const [users, setUsers] = useState<Array<UserType>>(data)
-//     const deleteUser = (userID: number) => {
-//         const filteredUsers = users.filter(u => u.id !== userID)
-//         setUsers(filteredUsers)
-//     }
-//     return (
-//         <main>
-//             <h4>User list:</h4>
-//             <ul>
-//                 {users.map(u => <User
-//                     key={u.id}
-//                     {...u}
-//                     deleteUser={deleteUser}
-//                 />)}
-//             </ul>
-//         </main>
-//     )
-// }
-//
-// ReactDOM.render(
-//     <UsersList/>, document.getElementById('root')
-// );
-// Что надо написать вместо xxx, чтобы код работал?
+//           <h3>5 вопрос</h3>
 //
 //
-//             <h3>11 вопрос</h3>
+//
+// //            <h3>7 вопрос</h3>
 //
 //
-//             <h3>12 вопрос</h3>
-//
-//
-//             <h3>10 вопрос</h3>
-//
-// import React from 'react';
-// //
+// //            <h3>8 вопрос</h3>
+// //            <h3>9 вопрос</h3>
 // //            <h3>1 вопрос</h3>
-// //type UserPropsType = {
-// //     name: string
-// //     description: string
-// // }
-// // export const User: React.FC<UserPropsType> = (props) => {
-// //     return <div>
-// //         <h1>Имя: {props.name}</h1>
-// //         //<div>Описание: {ххх}</div>
-// //     </div>
-// // }
-// //
-// // //Что нужно написать вместо ххх, что бы код работал?
-// //Ans:props.description
-// //           <h3>2 вопрос</h3>
-// //type PagePropsType = {
-// //     age: number
-// //     name: string
-// //     avatarUrl: string
-// // }
-// // const Page: React.FC<PagePropsType> = (props) => {
-// //     return <User a={xxx} n={yyy} />
-// // }
-// // type UserPropsType = {
-// //     a: number
-// //     n: string
-// // }
-// // export const User: React.FC<UserPropsType> = (props) => {
-// //     return <div>name: {props.n}, age: {props.a}</div>
-// // }
-// //
-// // // Что нужно написать вместо xxx и yyy?
-// // // Ответ дайте через пробел, например: blabla onClick(props)
-//
-// //           <h3>3 вопрос</h3>
-// //type UserWalletType = {
-// //     title: string
-// //     amount: number
-// // }
-// // type UserWalletPropsType = {
-// //     wallet: UserWalletType
-// // }
-// //
-// // export const UserWallet: React.FC<UserWalletPropsType> = (props) => {
-// //     return <div>title: {props.wallet.title}, amount: {props.wallet.amount}</div>
-// // }
-// //
-// // export const UserMoney = () => {
-// //     const wallets = [
-// //         {title: 'bitcoin', amount: 1},
-// //         {title: '$', amount: 100}
-// //     ]
-// //
-// //     return <div>
-// //         <UserWallet wallet={xxx} />
-// //         <UserWallet wallet={yyy} />
-// //     </div>
-// // }
-// //ANS:wallets[0] wallets[1]
-// //              <h3>4 вопрос</h3>
-// //import ReactDOM from 'react-dom'
-// //
-// // const Son = (props: any) => {
-// //     return <div>
-// //         I am son. My name is {props.name}
-// //     </div>
-// // }
-// //
-// //
-// // const Father = (props: any) => {
-// //     return <div>
-// //         I am father. My name is {props.name}
-// //         <Son name={props.sonName} />
-// //     </div>
-// // }
-// //
-// // const Granny = (props: any) => {
-// //     return <div>
-// //         I am granny. My name is {props.name}
-// //         <Father name={props.fatherName} sonName={props.sonName} />
-// //     </div>
-// // }
-// //
-// // export const App = () => {
-// //     return <div>
-// //         <Granny XXX={'Бабуля'} YYY={'Батя'} ZZZ={'Сын'}/>
-// //     </div>
-// // }
-// //
-// // ReactDOM.render(<App/>,
-// //     document.getElementById('root')
-// // )
-// //             <h3>5 вопрос</h3>
-// //
-// //import React, {useState} from 'react';
-// // import ReactDOM from 'react-dom';
-// // import './index.css';
-// //
-// // function UsersList() {
-// //     const results = useState<Array<string>>(["Bob", "Alex", "Ann"])
-// //
-// //     const users = results[0]
-// //     const setUsers = results[1]
-// //
-// //     return (
-// //        <p>Тут будет список пользователей</p>
-// //     )
-// // }
-// //
-// // ReactDOM.render(
-// //     <UsersList/>, document.getElementById('root')
-// // );
-// //
-// // // Чему равно results.length?
-// //ANS:2
-// //
-// //             <h3>6 вопрос</h3>
-// //import React, {useState} from 'react';
-// // import ReactDOM from 'react-dom';
-// // import './index.css';
-// //
-// // function UsersList() {
-// //     const [users, setUsers] = useState<Array<string>>(["Bob", "Alex", "Ann"])
-// //     return (
-// //        <p>Тут будет список пользователей</p>
-// //     )
-// // }
-// //
-// // ReactDOM.render(
-// //     <UsersList/>, document.getElementById('root')
-// // );
-// // // Что вернёт выражение: typeof setUsers?
-// //ANS:function
-// //             <h3>7 вопрос</h3>
-// //import React, {useState} from 'react';
-// // import ReactDOM from 'react-dom';
-// // import './index.css';
-// //
-// // type UserType = {
-// //     id: number
-// //     name: string
-// //     age: number
-// // }
-// //
-// // function User(props: UserType) {
-// //     return (
-// //         <li>User {props.name}: {props.age} y.o.</li>
-// //     )
-// // }
-// //
-// // function UsersList() {
-// //     const state = [
-// //         {id: 1, name: "Bob", age: 34},
-// //         {id: 2, name: "Alex", age: 25},
-// //         {id: 3, name: "Ann", age: 30},
-// //         {id: 4, name: "John", age: 23},
-// //     ]
-// //     const users = [
-// //         {id: 1, userName: "Bob", age: 34},
-// //         {id: 2, userName: "Alex", age: 25},
-// //         {id: 3, userName: "Ann", age: 30},
-// //         {id: 4, userName: "John", age: 23},
-// //     ]
-// //
-// //     const [usersList, setUsersList] = useState<Array<UserType>>(XXX)
-// //     return (
-// //         <main>
-// //             <h5>User list:</h5>
-// //             <p>Тут будет список пользователей</p>
-// //         </main>
-// //     )
-// // }
-// //
-// // ReactDOM.render(
-// //     <UsersList/>, document.getElementById('root')
-// // );
-// // // Что надо написать вместо XXX, чтобы код работал?
-// // // ❗ Если мы отмапим массив, то должны увидеть данные пользователей
-// // // ❗ Ответ дать минимально возможным объёмом кода
-// //ANS:state
-// //              <h3>8 вопрос</h3>
-// //import React, {useState} from 'react';
-// // import ReactDOM from 'react-dom';
-// // import './index.css';
-// //
-// // type UserType = {
-// //     id: number
-// //     name: string
-// //     age: number
-// // }
-// //
-// // function User(props: UserType) {
-// //     return (
-// //         <li>User {props.name}: {props.age} y.o.</li>
-// //     )
-// // }
-// //
-// // function UsersList() {
-// //     const data: Array<UserType> = [
-// //         {id: 1, name: "Bob", age: 25},
-// //         {id: 2, name: "Alex", age: 28},
-// //         {id: 3, name: "Ann", age: 23},
-// //         {id: 4, name: "John", age: 30},
-// //     ]
-// //     const [users, setUsers] = useState<Array<UserType>>(data)
-// //     // Пользователи старше 25 лет:
-// //     // const olderThen25Users = users.xxx(u => u.age > 25)
-// //     return (
-// //         <main>
-// //             <h4>User list:</h4>
-// //             <ul>
-// //                 {/*{ olderThen25Users.map(u => <User key={u.id} {...u}/>)}*/}
-// //             </ul>
-// //         </main>
-// //     )
-// // }
-// //
-// // ReactDOM.render(
-// //     <UsersList/>, document.getElementById('root')
-// // );
-// // // Что надо написать вместо xxx, чтобы код работал?
-// //ANS:filter
-// //
-// //             <h3>9 вопрос</h3>
-// //
-// //import React, {MouseEvent} from 'react';
-// // import ReactDOM from 'react-dom';
-// // import './index.css';
-// //
-// // function Button() {
-// //     const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-// //         // console.log((typeof e) === ххх)
-// //     }
-// //     return <button onClick={onClickHandler} >Click</button>
-// // }
-// //
-// //
-// // ReactDOM.render(
-// //     <Button/>, document.getElementById('root')
-// // );
-// //
-// // // Какой тип данных представляет аргумент функции-обработчика?
-// // // Что надо написать вместо ххх, что бы в консоль вывело true?
-// //             <h3>10 вопрос</h3>
-// import React, {useState} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-//
-// type UserType = {
-//     id: number
-//     name: string
-//     age: number
-// }
-//
-// type UserPropsType = UserType & {
-//     deleteUser: (id: number) => void
-// }
-//
-// function User(props: UserPropsType) {
-//     return (
-//         <li>
-//             {/*<button onClick={() => props.deleteUser(xxx)}>x</button>*/}
-//             User {props.name}: {props.age} y.o.
-//         </li>
-//     )
-// }
-//
-// function UsersList() {
-//     const data: Array<UserType> = [
-//         {id: 1, name: "Bob", age: 25},
-//         {id: 2, name: "Alex", age: 28},
-//         {id: 3, name: "Ann", age: 23},
-//         {id: 4, name: "John", age: 30},
-//     ]
-//     const [users, setUsers] = useState<Array<UserType>>(data)
-//     const deleteUser = (userID: number) => {
-//         const filteredUsers = users.filter(u => u.id !== userID)
-//         setUsers(filteredUsers)
-//     }
-//     return (
-//         <main>
-//             <h4>User list:</h4>
-//             <ul>
-//                 {users.map(u => <User
-//                     key={u.id}
-//                     {...u}
-//                     deleteUser={deleteUser}
-//                 />)}
-//             </ul>
-//         </main>
-//     )
-// }
-//
-// ReactDOM.render(
-//     <UsersList/>, document.getElementById('root')
-// );
-// // Что надо написать вместо xxx, чтобы код работал?
-// ANS:props.id
-//
-//
-// //             <h3>11 вопрос</h3>
-// import React, {useState, MouseEvent, ChangeEvent} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-//
-// function User() {
-//     const [userName, setUserName] = useState<string>("")
-//     return (
-//         <div>
-//             <p>{userName}</p>
-//             <input
-//                 // xxx
-//                 onChange={(e) => setUserName(e.currentTarget.value)}
-//             />
-//         </div>
-//     )
-// }
-//
-// ReactDOM.render(
-//     <User/>, document.getElementById('root')
-// );
-// // Что надо написать вместо ххх, чтобы инпут был контролируемым?
-// ANS:value={userName}
-//
-// //             <h3>12 вопрос</h3>
-//
-//
-// //             <h3>10 вопрос</h3>
+// //            <h3>1 вопрос</h3>
 // //

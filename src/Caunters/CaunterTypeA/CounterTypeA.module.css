@@ -1,0 +1,158 @@
+.all {
+    text-align: center;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+    Justify-content: space-around;
+}
+
+.counter {
+
+    border: 3px solid #6DE5FA;
+    background-color: #292C34;
+    border-radius: 7px;
+    width: 250px;
+    height: 205px;
+
+}
+
+
+.num1 {
+    font-weight: bold;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 230px;
+    height: 100px;
+    color: #292C34;
+    background-color: #6DE5FA;
+    border-radius: 7px;
+    font-size: 55px;
+}
+
+.num2 {
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 230px;
+    height: 100px;
+    color: red;
+    background-color: #6DE5FA;
+    border-radius: 7px;
+    font-size: 55px;
+}
+
+.buttonsArea {
+    display: flex;
+    border: 3px solid #6DE5FA;
+    background-color: #292C34;
+    border-radius: 7px;
+    width: 224px;
+    height: 70px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+.buttons {
+
+    border: 2px solid #6DE5FA;
+    border-radius: 7px;
+    background-color: #6DE5FA;
+    font-size: 23px;
+    font-weight: bold;
+
+}
+
+.buttons:active {
+
+    border: 2px solid #6DE5FA;
+    border-radius: 7px;
+    background-color: #6DE5FA;
+    font-size: 23px;
+    font-weight: bold;
+    opacity: 80%;
+}
+
+.inc {
+    position: relative;
+    left: 30px;
+    top: 15px
+}
+
+.reset {
+    position: relative;
+    left: 80px;
+    top: 15px
+}
+
+.input {
+    background-color: #292C34;
+    position: relative;
+    top: -25px;
+    left: 30px;
+    width: 80px;
+    border: 2px solid #6DE5FA;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #6DE5FA;
+
+}
+
+.text {
+    display: flex;
+
+    color: #6DE5FA;
+
+}
+
+.error {
+    position: relative;
+    top: -25px;
+    left: 30px;
+    border: rgba(255, 0, 0, 0.51) 2px solid;
+    width: 85px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.11);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.textError {
+    position: relative;
+    top: 20px;
+    color: red;
+    font-size: 25px;
+
+}
+
+.settings {
+    border: 2px solid #6DE5FA;
+    border-radius: 7px;
+    width: 250px;
+    height: 205px;
+}
+
+.setInput {
+    border: 2px solid #6DE5FA;
+    border-radius: 7px;
+    width: 224px;
+    height: 100px;
+    margin: 10px;
+}
+
+.setButton {
+    position: relative;
+    border: 2px solid #6DE5FA;
+    border-radius: 7px;
+    width: 184px;
+    height: 25px;
+    margin: 10px;
+    padding: 20px;
+}

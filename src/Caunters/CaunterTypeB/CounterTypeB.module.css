@@ -1,0 +1,152 @@
+.allCounter {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid orange;
+    border-radius: 5px;
+    width: 400px;
+    height: 250px;
+}
+
+.value {
+    margin: 10px;
+    font-size: 80px;
+    color: orange;
+    border: 3px solid orange;
+    border-radius: 5px;
+    height: 115px;
+    width: 375px;
+}
+
+.valueMax {
+    margin: 10px;
+    font-size: 80px;
+    color: #fc0a0a;
+    border: 3px solid orange;
+    border-radius: 5px;
+    height: 115px;
+}
+
+.inputs {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    height: 221px;
+    border: 3px solid orange;
+    border-radius: 5px;
+}
+
+.errorInput {
+    color: orange;
+    border: 3px solid rgba(255, 0, 0, 0.43);
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    background-color: #8a5555;
+    font-size: 25px;
+    text-align: center;
+    margin-left: 137px;
+    padding-left: 15px;
+}
+
+.maxInput {
+    color: orange;
+    border: 3px solid orange;
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    background-color: #292C34;
+    font-size: 25px;
+    text-align: center;
+    margin-left: 137px;
+    padding-left: 15px;
+
+}
+
+.minInput {
+    color: orange;
+    border: 3px solid orange;
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    background-color: #292C34;
+    font-size: 25px;
+    text-align: center;
+    margin-left: 137px;
+    padding-left: 15px;
+}
+
+.errorText {
+    margin: 10px;
+    font-size: 50px;
+    color: #fc0a0a;
+    height: 115px;
+}
+
+.title {
+    color: orange;
+    font-size: 20px;
+    /*position: relative;*/
+    /*top: 28px;*/
+    /*left: -105px*/
+}
+
+.buttonsValue {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: center;
+    row-gap: 30px;
+    margin: 10px;
+    border: 3px solid orange;
+    border-radius: 5px;
+    height: 90px;
+    width: 375px;
+}
+
+.button {
+    width: 90px;
+    height: 30px;
+    margin-top: 30px;
+    border: 3px solid orange;
+    border-radius: 5px;
+    background-color: #292C34;
+    color: orange;
+    font-size: 20px;
+}
+
+
+.button:hover {
+    margin-top: 30px;
+    border: 3px solid orange;
+    border-radius: 5px;
+    background-color: #292C34;
+    color: orange;
+    font-size: 22px;
+    opacity: 80%;
+}
+
+.button:active {
+    height: 28px;
+    margin-top: 30px;
+    border: 3px solid orange;
+    border-radius: 5px;
+    background-color: #292C34;
+    color: orange;
+    font-size: 20px;
+    opacity: 50%;
+}
+
+.button:disabled {
+    /*width: 70px;*/
+    /*height: 30px;*/
+    margin-top: 30px;
+    border: 3px solid orange;
+    border-radius: 5px;
+    background-color: #292C34;
+    color: orange;
+    font-size: 22px;
+    opacity: 20%;
+}
+

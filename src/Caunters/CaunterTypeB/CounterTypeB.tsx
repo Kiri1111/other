@@ -42,7 +42,7 @@ export const CounterTypeB = () => {
     }, [])
 
     return (
-        <>
+        <div className={s.all}>
             <div className={s.allCounter}>
                 {page ?
                     <div>
@@ -72,6 +72,6 @@ export const CounterTypeB = () => {
                     />}
             </div>
 
-        </>);
+        </div>);
 };
 

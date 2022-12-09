@@ -2,6 +2,24 @@
 .app {
     padding: 50px;
     background-color: #292C34;
-    height: 2222px;
     width: 100%;
+    height: 100vh;
+}
+
+.buttonA {
+    border: 2px solid #6DE5FA;
+    border-radius: 7px;
+    background-color: #6DE5FA;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.buttonB {
+
+
+    border: 3px solid orange;
+    border-radius: 5px;
+    background-color: #292C34;
+    color: orange;
+    font-size: 20px;
 }

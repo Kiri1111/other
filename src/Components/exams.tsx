@@ -1,180 +1,241 @@
 import React from 'react';
 //
 //             <h3>1 вопрос</h3>
-//import React, {useState, MouseEvent} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
 //
-// function ColorButton() {
-//     const [isColored, setIsColored] = useState<boolean>(false)
-//     return (
-//         <button
-//             style={{ backgroundColor: `${ XXX === true ? "red": ""}`}}
-//             onClick={()=>setIsColored(true)}
-//         >
-//           Меняю цвет по клику
-//         </button>
-//     )
+//type Status = 'Stopped' | 'Playing' | 'Paused'
+// type StateType = {
+//     volume: number // in percents
+//     trackUrl: string // 'https://blabla.com/track01.mp3',
+//     currentPlayPosition: number // milliseconds,
+//     status: Status
 // }
 //
+// export const playerReducer = (state: StateType, action: any) => {
+//     switch (action.type) {
+//         case XXX:
+//             return {
+//                 ...state,
+//                 trackUrl: action.url
+//             }
+//         default:
+//             return state
+//     }
+// }
 //
-// ReactDOM.render(
-//     <ColorButton/>, document.getElementById('root')
-// );
-//ANS:isColored
-// // Что надо написать вместо XXX, чтобы при клике кнопка становилась красной?
+// const muteTrackAC = () => ({type: 'TRACK-MUTED'})
+// const changeTrackAC = (url: string) => ({type: 'TRACK-URL-CHANGED', url})
+// const changeTrackPlayStatusAC = (status: Status) => ({type: 'TRACK-STATUS-CHANGED', status})
+//
+// //Какой тип должен быть вместо XXX?
+//  ANS:'TRACK-URL-CHANGED'
+//
+//
+//
 //            <h3>2 вопрос</h3>
-//import React, {useState} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
 //
-// function UsersList() {
-//     const [users, setUsers] = useState<Array<string>>(["Bob", "Alex", "Ann"])
-//     const getUser = (user: string, i: number) => <li key={i}>{user}</li>
-//
-//      const usersList = (XXX === 0)
-//         ? <p>List is empty</p>
-//         :  <ul>
-//             { users.map(getUser)}
-//            </ul>
-//
-//     return (
-//         <main>
-//             <button onClick={()=>setUsers([])}>Clear list</button>
-//             <h4>User list:</h4>
-//                 {usersList}
-//         </main>
-//     )
+//type Status = 'Stopped' | 'Playing' | 'Paused'
+// type StateType = {
+//     volume: number // in percents
+//     trackUrl: string // 'https://blabla.com/track01.mp3',
+//     currentPlayPosition: number // milliseconds,
+//     status: Status
+// }
+// export const playerReducer = (state: StateType, action: any) => {
+//     switch (action.type) {
+//         case 'TRACK-STATUS-CHANGED':
+//             return {
+//                 ...state,
+//                 status: action.status
+//             }
+//         default:
+//             return state
+//     }
 // }
 //
-// ReactDOM.render(
-//     <UsersList/>, document.getElementById('root')
-// );ANS:users.length
-// // Что надо вставить вместо XXX, чтобы код корректно работал  со списком пользователей?
+// const muteTrackAC = () => ({type: 'TRACK-MUTED'})
+// const changeTrackAC = (url: string) => ({type: 'TRACK-URL-CHANGED', url})
+// const changeTrackPlayStatusAC = (status: Status) => ({type: 'TRACK-STATUS-CHANGED', status})
+//
+// const state: StateType = {
+//     status: 'Stopped',
+//     currentPlayPosition: 1213,
+//     trackUrl: 'https://blabla.com/track01.mp3',
+//     volume: 100
+// }
+//
+// const newState = playerReducer(state, XXX)
+// console.log(newState.status === 'Paused')
+//
+// //Напишите вместо XXX правильный вызов правильного AC, чтобы в консоли было true
+//ANSW:xz
+//
+//
 //            <h3>3 вопрос</h3>
 //
-//import React, {useState} from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-//
-// function PasswordChecker() {
-//     const [password, setPassword] = useState<string>("")
-//     return (
-//         <main>
-//             <p>Your password must have more than 8 charters!</p>
-//             <input
-//                 placeholder={"Enter your password"}
-//                 value={password}
-//                 onChange={e => setPassword(e.currentTarget.value)}
-//                 type={"password"}
-//             />
-//             {XXX < 9 && <p style={{color: "red"}}>The password is too short!</p>}
-//         </main>
-//     )
+//type Status = 'Stopped' | 'Playing' | 'Paused'
+// type StateType = {
+//     volume: number // in percents
+//     trackUrl: string // 'https://blabla.com/track01.mp3',
+//     currentPlayPosition: number // milliseconds,
+//     status: Status
+// }
+// export const playerReducer = (state: StateType, action: any) => {
+//     switch (action.type) {
+//         case 'TRACK-VOLUME-CHANGED':
+//             return {
+//                 ...state,
+//                 XXX
+//             }
+//         default:
+//             return state
+//     }
 // }
 //
-// ReactDOM.render(
-//     <PasswordChecker/>, document.getElementById('root')
-// );
-//ANS:password.length
-// // Что надо вставить вместо XXX, чтобы код работал нормально?
+// const muteTrackAC = () => ({type: 'TRACK-MUTED'})
+// const changeVolumeAC = (volumeLevel: number) => ({type: 'TRACK-VOLUME-CHANGED', volumeLevel})
+// const changeTrackAC = (url: string) => ({type: 'TRACK-URL-CHANGED', url})
+// const changeTrackPlayStatusAC = (status: Status) => ({type: 'TRACK-STATUS-CHANGED', status})
+//
+// const state: StateType = {
+//     status: 'Stopped',
+//     currentPlayPosition: 1213,
+//     trackUrl: 'https://blabla.com/track01.mp3',
+//     volume: 100
+// }
+// const newState = playerReducer(state, changeVolumeAC(20))
+// console.log(newState.volume === 20)
+//
+// // Напишите вместо XXX правильную строку кода, чтобы изменить громкость трека и увидеть в консоли true.
+//
+//ans:volume:action.volumeLevel
+//
 //             <h3>4 вопрос</h3>
 //
-//type StudentType = {
-//     id: number
-//     name: string
+//
+//export const reducer = (state: any, action: any) => {
+//     switch (action.type) {
+//         case 'TRACK-LIKED':
+//             return {
+//                 ...state,
+//                 [XXX]: {
+//                    ...state[XXX],
+//                    likesCount: state[XXX].likesCount + 1
+//                 }
+//             }
+//         default:
+//             return state
+//     }
 // }
 //
-// type FriendsType = {
-//     [key: string]: Array<string>
+// const likeTrackAC = (trackId: number) => ({type: 'TRACK-LIKED', trackId})
+//
+//
+// const state = {
+//     12: {id: 12, likesCount: 10},
+//     14: {id: 14, likesCount: 2},
+//     100: {id: 100, likesCount: 0},
 // }
+// const newState = reducer(state, likeTrackAC(14))
 //
-// export const students: Array<StudentType> = [
-//     {id: 1, name: "Bob"},
-//     {id: 2, name: "Alex"},
-//     {id: 3, name: "Ann"},
-//     {id: 4, name: "Charley"},
-// ]
+// console.log(newState[14].likesCount === 3)
 //
-// export const friends: FriendsType = {
-//     1: ["Oliver", "Jack", "Oscar",],
-//     2: ["Jack", "Lewis", "Thomas",],
-//     3: ["William", "Michael", "Lewis",],
-//     4: ["Oscar", "James", "William",],
-// }
+// // Что нужно написать вместо XXX, чтобы в консоли увидеть true?
+// // ❗ Захардкодженные значения использовать запрещено
+//answ:action.trackId
 //
-// //Дан список студентов и структура,
-// //которая содержит список друзей каждого из студентов.
-// //Id студента является ключом к массиву его друзей.
-// //Какое значение лежит тут:  friends[3][1]?
-//ans:"Michael"
 //           <h3>5 вопрос</h3>
-//type StudentType = {
-//     id: number
-//     name: string
+//
+//
+//export const reducer = (state: any, action: any) => {
+//     switch (action.type) {
+//         case 'TRACK-ADDED':
+//             return XXX
+//         default:
+//             return state
+//     }
 // }
 //
-// type FriendsType = {
-//     [key: string]: Array<String>
-// }
+// const addTrackAC = (trackId: number) => ({type: 'TRACK-ADDED', trackId})
 //
-// export const students: Array<StudentType> = [
-//     {id: 1, name: "Bob"},
-//     {id: 2, name: "Alex"},
-//     {id: 3, name: "Ann"},
-//     {id: 4, name: "Charley"},
+//
+// const state = [
+//     {id: 12, likesCount: 10},
+//     {id: 14, likesCount: 2},
+//     {id: 100, likesCount: 0}
 // ]
+// const newState = reducer(state, addTrackAC(300))
 //
-// export const friends: FriendsType = {
-//     1: ["Oliver", "Jack", "Oscar",],
-//     2: ["Jack", "Lewis", "Thomas",],
-//     3: ["William", "Michael", "Lewis",],
-//     4: ["Oscar", "James", "William",],
-// }
-//ANS:undefined
-// //Дан список студентов и структура,
-// //которая содержит список друзей каждого из студентов.
-// //Id студента является ключом к массиву его друзей.
-// //Какое значение лежит тут: friends[students[0].id][3]?
+// console.log(newState[3].likesCount === 0)
+//
+// // Что нужно написать вместо XXX, чтобы трек корректно добавился и в консоли увидеть true?
+//answ:[...state, {id: action.trackId, likesCount: 0}]
+//
 //           <h3>6 вопрос</h3>
-//type StudentType = {
-//     id: number
-//     name: string
+//
+//
+//export const reducer = (state: any, action: any) => {
+//     switch (action.type) {
+//         case 'TRACK-DELETED':
+//            return state.filter((track: any) => XXX)
+//         default:
+//             return state
+//     }
 // }
 //
-// type FriendsType = {
-//     [key: string]: Array<string>
-// }
+// const deleteTrackAC = (trackId: number) => ({type: 'TRACK-DELETED', trackId})
 //
-// export const students: Array<StudentType> = [
-//     {id: 1, name: "Bob"},
-//     {id: 2, name: "Alex"},
-//     {id: 3, name: "Ann"},
-//     {id: 4, name: "Charley"},
+//
+// const state = [
+//     {id: 12, likesCount: 10},
+//     {id: 14, likesCount: 2},
+//     {id: 100, likesCount: 0}
 // ]
+// const newState = reducer(state, deleteTrackAC(14))
 //
-// export const friends: FriendsType = {
-//     1: ["Oliver", "Jack", "Oscar",],
-//     2: ["Jack", "Lewis", "Thomas",],
-//     3: ["William", "Michael", "Lewis",],
-//     4: ["Oscar", "James", "William",],
-// }
+// console.log(newState.length === 2)
 //
-// const getMutualFriends = (st_1: StudentType, st_2: StudentType,) => {
-//     const result: Array<string> = []
-//     friends[st_1.id].forEach(f => friends[xxx].includes(f)? result.push(f): null)
-//     return result
-// }
 //
-// //Дан массив студентов и структура,
-// //которая содержит список друзей каждого из студентов.
-// // Так же дана функция  getMutualFriends, проверяющая наличие общих друзей
-// // у двух выбранных студентов.
-// //Функция принимает параметром два объекта типа StudentType
-// // и возвращает массив с именами общих друзей,
-// //если они есть и пустой массив, если таковых нету.
-// // Что надо написать вместо ххх, чтобы функция работала?
+// // Что нужно написать вместо XXX, чтобы корректно удалить трек и в консоли увидеть true?
+//answ:track.id !== action.trackId
+//
 //            <h3>7 вопрос</h3>
+//type StateType = {
+//     volume: number // in percents
+//     trackUrl: string // 'https://blabla.com/track01.mp3',
+//     currentPlayPosition: number // milliseconds,
+//   }
+//
+// export const reducer = (state: StateType, action: any) => {
+//     switch (action.type) {
+//         case XXX:
+//             return {
+//                 ...state,
+//                 trackUrl: action.url
+//             }
+//         case YYY:
+//             return {
+//                 ...state,
+//                 volume: 0
+//             }
+//         case ZZZ:
+//             return {
+//                 ...state,
+//                 currentPlayPosition: 0
+//             }
+//         default:
+//             return state
+//     }
+// }
+//
+// const muteTrackAC = () => ({type: 'TRACK-MUTED'})
+// const changeTrackAC = (url: string) => ({type: 'TRACK-URL-CHANGED', url})
+// // перемотатьНаНачало:
+// const rewindToStart = () => ({type: 'TRACK-REWOUND-TO-START'})
+//
+// // Какие типы должны быть вместо XXX, YYY и ZZZ?
+// // Ответ дать через пробел, например:   'BLABLA' 'HEYНЕY' 'HIPHOP'
+//
+//
 //
 //           <h3>8 вопрос</h3>
 //

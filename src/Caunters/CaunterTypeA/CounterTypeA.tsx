@@ -39,29 +39,29 @@ export function CounterTypeA() {
         setMax(newValue)
     }
 
-    // useEffect(() => {
-    //     let key = localStorage.getItem('number')
-    //     if (key) {
-    //         let localA = JSON.parse(key)
-    //         setValue(localA)
-    //     }
-    // }, [])
-    //
-    // useEffect(() => {
-    //     let key = localStorage.getItem('min')
-    //     if (key) {
-    //         let localA = JSON.parse(key)
-    //         setStart(localA)
-    //     }
-    // }, [])
-    //
-    // useEffect(() => {
-    //     let key = localStorage.getItem('max')
-    //     if (key) {
-    //         let localA = JSON.parse(key)
-    //         setMax(localA)
-    //     }
-    // }, [])
+    useEffect(() => {
+        let key = localStorage.getItem('number')
+        if (key) {
+            let localA = JSON.parse(key)
+            setValue(localA)
+        }
+    }, [])
+
+    useEffect(() => {
+        let key = localStorage.getItem('min')
+        if (key) {
+            let localA = JSON.parse(key)
+            setStart(localA)
+        }
+    }, [])
+
+    useEffect(() => {
+        let key = localStorage.getItem('max')
+        if (key) {
+            let localA = JSON.parse(key)
+            setMax(localA)
+        }
+    }, [])
 
     return (
         <div className={s.all}>

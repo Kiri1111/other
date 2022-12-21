@@ -2,238 +2,317 @@ import React from 'react';
 //
 //             <h3>1 вопрос</h3>
 //
-//type Status = 'Stopped' | 'Playing' | 'Paused'
-// type StateType = {
-//     volume: number // in percents
-//     trackUrl: string // 'https://blabla.com/track01.mp3',
-//     currentPlayPosition: number // milliseconds,
-//     status: Status
+//
+//import {combineReducers, createStore} from 'redux'
+//
+// let initialState = {items: [{name: 'Dimych'}, {name: 'Ignat'}]}
+// const usersReducer = (state = initialState, action: any) => {
+//     return state
 // }
 //
-// export const playerReducer = (state: StateType, action: any) => {
-//     switch (action.type) {
-//         case XXX:
-//             return {
-//                 ...state,
-//                 trackUrl: action.url
-//             }
-//         default:
-//             return state
-//     }
-// }
+// const store = createStore(combineReducers({
+//     users: usersReducer
+// }))
 //
-// const muteTrackAC = () => ({type: 'TRACK-MUTED'})
-// const changeTrackAC = (url: string) => ({type: 'TRACK-URL-CHANGED', url})
-// const changeTrackPlayStatusAC = (status: Status) => ({type: 'TRACK-STATUS-CHANGED', status})
+// store.XXX(() => {
+//     console.log('state changed')
+// })
 //
-// //Какой тип должен быть вместо XXX?
-//  ANS:'TRACK-URL-CHANGED'
+// store.dispatch({type: 'ANY'})
 //
-//
-//
+// // Что нужно написать вместо XXX, чтобы в консоли увидеть 'state changed'?
+//answ subscribe
 //            <h3>2 вопрос</h3>
 //
-//type Status = 'Stopped' | 'Playing' | 'Paused'
-// type StateType = {
-//     volume: number // in percents
-//     trackUrl: string // 'https://blabla.com/track01.mp3',
-//     currentPlayPosition: number // milliseconds,
-//     status: Status
-// }
-// export const playerReducer = (state: StateType, action: any) => {
-//     switch (action.type) {
-//         case 'TRACK-STATUS-CHANGED':
-//             return {
-//                 ...state,
-//                 status: action.status
-//             }
-//         default:
-//             return state
-//     }
+//import {combineReducers, createStore} from 'redux'
+//
+// let initialState = {items: [{name: 'Dimych'}, {name: 'Ignat'}]}
+// const usersReducer = (state = initialState, action: any) => {
+//     return state
 // }
 //
-// const muteTrackAC = () => ({type: 'TRACK-MUTED'})
-// const changeTrackAC = (url: string) => ({type: 'TRACK-URL-CHANGED', url})
-// const changeTrackPlayStatusAC = (status: Status) => ({type: 'TRACK-STATUS-CHANGED', status})
+// const store = createStore(combineReducers({
+//     users: usersReducer
+// }))
 //
-// const state: StateType = {
-//     status: 'Stopped',
-//     currentPlayPosition: 1213,
-//     trackUrl: 'https://blabla.com/track01.mp3',
-//     volume: 100
-// }
+// store.subscribe(() => {
+//     const state = XXX
+//     console.log(state)
+// })
 //
-// const newState = playerReducer(state, XXX)
-// console.log(newState.status === 'Paused')
+// store.dispatch({type: 'ANY'})
 //
-// //Напишите вместо XXX правильный вызов правильного AC, чтобы в консоли было true
-//ANSW:xz
-//
-//
+// //Что нужно написать вместо XXX, чтобы получить актуальный стейт?
+//answ
 //            <h3>3 вопрос</h3>
 //
-//type Status = 'Stopped' | 'Playing' | 'Paused'
-// type StateType = {
-//     volume: number // in percents
-//     trackUrl: string // 'https://blabla.com/track01.mp3',
-//     currentPlayPosition: number // milliseconds,
-//     status: Status
+//import {combineReducers, createStore} from 'redux'
+// import ReactDOM from 'react-dom'
+// import {Provider, useSelector} from 'react-redux'
+// import React from 'react'
+//
+// let initialState = {items:
+//    [
+//     {id: 1, name: 'Dimych'},
+//     {id: 2, name: 'Ignat'}
+//    ]
 // }
-// export const playerReducer = (state: StateType, action: any) => {
-//     switch (action.type) {
-//         case 'TRACK-VOLUME-CHANGED':
-//             return {
-//                 ...state,
-//                 XXX
-//             }
-//         default:
-//             return state
-//     }
+// const usersReducer = (state = initialState, action: any) => {
+//     return state
 // }
 //
-// const muteTrackAC = () => ({type: 'TRACK-MUTED'})
-// const changeVolumeAC = (volumeLevel: number) => ({type: 'TRACK-VOLUME-CHANGED', volumeLevel})
-// const changeTrackAC = (url: string) => ({type: 'TRACK-URL-CHANGED', url})
-// const changeTrackPlayStatusAC = (status: Status) => ({type: 'TRACK-STATUS-CHANGED', status})
-//
-// const state: StateType = {
-//     status: 'Stopped',
-//     currentPlayPosition: 1213,
-//     trackUrl: 'https://blabla.com/track01.mp3',
-//     volume: 100
+// let authInitialState = {login: 'Margo', settings: {theme: 'dark'}}
+// const authReducer = (state = authInitialState, action: any) => {
+//     return state
 // }
-// const newState = playerReducer(state, changeVolumeAC(20))
-// console.log(newState.volume === 20)
 //
-// // Напишите вместо XXX правильную строку кода, чтобы изменить громкость трека и увидеть в консоли true.
+// let rootReducer = combineReducers({
+//     users: usersReducer,
+//     auth: authReducer
+// })
 //
-//ans:volume:action.volumeLevel
+// const store = createStore(rootReducer)
+// type RootStateType = ReturnType<typeof rootReducer>
 //
+// const selector = (state: RootStateType) => state.users.items
+//
+// const Users = () => {
+//
+//   const users = XXX
+//
+//     return <ul>
+//         {users.map(u => <li key={u.id}>{u.name}</li>)}
+//     </ul>
+// }
+//
+// ReactDOM.render(<div>
+//         <Provider store={store}>
+//             <Users/>
+//         </Provider>
+//     </div>,
+//     document.getElementById('root')
+// )
+//
+// // Что нужно написать вместо XXX, чтобы отрендерить список юзеров?
+// // ❗ Ответ дать минимально возможным объёмом кода
 //             <h3>4 вопрос</h3>
 //
+//import React, {useState, useReducer, useEffect} from 'react';
+// import ReactDOM from 'react-dom';
+// import './index.css';
 //
-//export const reducer = (state: any, action: any) => {
+// const changeCounter = (state: number, action: any): number => {
 //     switch (action.type) {
-//         case 'TRACK-LIKED':
-//             return {
-//                 ...state,
-//                 [XXX]: {
-//                    ...state[XXX],
-//                    likesCount: state[XXX].likesCount + 1
-//                 }
-//             }
+//         case "INC_VALUE":
+//             return state + 1
+//         case "RESET":
+//             return 0
+//         case "DEC_VALUE":
+//             return state - 1
 //         default:
 //             return state
 //     }
 // }
 //
-// const likeTrackAC = (trackId: number) => ({type: 'TRACK-LIKED', trackId})
+// function Counter() {
+//     const [value, setValue] = XXX(changeCounter, 0)
+//     const [isCounter, setIsCounter] = YYY(true)
+//     const commonStyles: React.CSSProperties = {
+//         border: "1px solid black",
+//         margin: "100px auto",
+//         width: "300px",
+//         height: "150px",
+//         textAlign: "center",
+//     }
+//     const btnStyles: React.CSSProperties = {
+//         color: "white",
+//         fontWeight: "bold",
+//         backgroundColor: "darkgray",
+//         borderRadius: "3px",
+//         minWidth: "40px"
+//     }
 //
+//     return (
+//         <div style={commonStyles}>{
+//             isCounter
+//                 ? <div >
+//                     <div style={{marginBottom: "20px"}}>
+//                         <h2>{value}</h2>
+//                         <button
+//                             style={{...btnStyles, backgroundColor: "red"}}
+//                             onClick={() => setIsCounter(false)}>OFF</button>
+//                     </div>
+//                     <button style={btnStyles} onClick={() => setValue({type: "INC_VALUE"})}>+</button>
+//                     <button style={btnStyles} onClick={() => setValue({type: "RESET"})}>0</button>
+//                     <button style={btnStyles} onClick={() => setValue({type: "DEC_VALUE"})}>-</button>
 //
-// const state = {
-//     12: {id: 12, likesCount: 10},
-//     14: {id: 14, likesCount: 2},
-//     100: {id: 100, likesCount: 0},
+//                 </div>
+//                 : <div style={{textAlign: "center"}}>
+//                     <h2>Counter not working</h2>
+//                     <button
+//                         style={{...btnStyles, backgroundColor: "green"}}
+//                         onClick={() => setIsCounter(true)}>ON</button>
+//                 </div>
+//         }
+//         </div>
+//     )
 // }
-// const newState = reducer(state, likeTrackAC(14))
 //
-// console.log(newState[14].likesCount === 3)
 //
-// // Что нужно написать вместо XXX, чтобы в консоли увидеть true?
-// // ❗ Захардкодженные значения использовать запрещено
-//answ:action.trackId
-//
+// ReactDOM.render(
+//     <Counter/>, document.getElementById('root')
+// );
+// // Что надо написать вместо XXX и YYY, чтобы код работал? Напишите через пробел.
+//answ useReducer useState
 //           <h3>5 вопрос</h3>
 //
+//import React from 'react'
+// import { createStore } from 'redux'
+// import { Provider, useSelector, useDispatch } from 'react-redux'
+// import ReactDOM from 'react-dom'
 //
-//export const reducer = (state: any, action: any) => {
-//     switch (action.type) {
-//         case 'TRACK-ADDED':
-//             return XXX
-//         default:
-//             return state
-//     }
+// type StudentType = {
+//     id: number
+//     name: string
+//     age: number
 // }
 //
-// const addTrackAC = (trackId: number) => ({type: 'TRACK-ADDED', trackId})
+// const initState = {
+//     students:
+//         [
+//             {id: 1, name: 'Bob', age: 23},
+//             {id: 2, name: 'Alex', age: 22}
+//         ] as Array<StudentType>
+// }
+// type AddStudentAT = {
+//     type: 'ADD-STUDENT'
+//     name: string
+//     age: number
+//     id: number
+// }
+//
+// type InitialStateType = typeof initState
+//
+// const studentsReducer = (state: InitialStateType = initState, action: AddStudentAT): InitialStateType => {
+//     switch (action.type) {
+//         case 'ADD-STUDENT':
+//             return {
+//                 ...state,
+//                 students: [...state.students, {
+//                     name: action.name,
+//                     age: action.age,
+//                     id: action.id
+//                 }]
+//             }
+//     }
+//     return state
+// }
+//
+// const appStore = createStore(studentsReducer)
+// type RootStateType = ReturnType<typeof studentsReducer>
 //
 //
-// const state = [
-//     {id: 12, likesCount: 10},
-//     {id: 14, likesCount: 2},
-//     {id: 100, likesCount: 0}
-// ]
-// const newState = reducer(state, addTrackAC(300))
+// const StudentList = () => {
+//     const students = useSelector((state: RootStateType) => state.students)
+//     return (
+//         <ul>
+//             {students.map(s => <li key={s.id}>{`${s.name}. ${s.age} years.`}</li>)}
+//         </ul>
+//     )
+// }
+// const App = () => {
+//     return <StudentList/>
+// }
 //
-// console.log(newState[3].likesCount === 0)
+// ReactDOM.render(<div>
+//         <XXX YYY={ZZZ}>
+//             <App/>
+//         </XXX>
+//     </div>,
+//     document.getElementById('root')
+// )
 //
-// // Что нужно написать вместо XXX, чтобы трек корректно добавился и в консоли увидеть true?
-//answ:[...state, {id: action.trackId, likesCount: 0}]
-//
+// // Что нужно написать вместо XXX, YYY и ZZZ, чтобы отобразился список студентов?
+//answ Provider store appStore
 //           <h3>6 вопрос</h3>
+//import {createStore} from 'redux'
+// import ReactDOM from 'react-dom'
+// import {Provider, useSelector, useDispatch} from 'react-redux'
+// import React from 'react'
 //
+// const students = {
+//     students: [
+//         {id: 1, name: 'Bob'},
+//         {id: 2, name: 'Alex'},
+//         {id: 3, name: 'Donald'},
+//         {id: 4, name: 'Ann'},
+//     ]
+// }
+// type RemoveStudentAT = {
+//     type: "REMOVE-STUDENT"
+//     id: number
+// }
+// const RemoveStudentAC = (id: number): RemoveStudentAT => ({
+//     type: "REMOVE-STUDENT",
+//     id
+// })
 //
-//export const reducer = (state: any, action: any) => {
+// const studentsReducer = (state = students, action: RemoveStudentAT) => {
 //     switch (action.type) {
-//         case 'TRACK-DELETED':
-//            return state.filter((track: any) => XXX)
-//         default:
-//             return state
+//         case "REMOVE-STUDENT":
+//             return {
+//                 ...state,
+//                 students: state.students.filter(s => s.id !== action.id)
+//             }
 //     }
+//     return state
 // }
 //
-// const deleteTrackAC = (trackId: number) => ({type: 'TRACK-DELETED', trackId})
+// const store = createStore(studentsReducer)
+// type RootStateType = ReturnType<typeof studentsReducer>
 //
 //
-// const state = [
-//     {id: 12, likesCount: 10},
-//     {id: 14, likesCount: 2},
-//     {id: 100, likesCount: 0}
-// ]
-// const newState = reducer(state, deleteTrackAC(14))
+// const StudentList = () => {
+//     const listItemStyles = {
+//         width: "100px",
+//         borderBottom: "1px solid gray",
+//         cursor: "pointer",
+//     }
+//     const students = useSelector((state: RootStateType) => state.students)
+//     const dispatch = useDispatch()
+//     const studentsList = students.map(s => {
+//         const removeStudent = () => {
+//             XXX(YYY( ZZZ))
+//         }
+//         return (
+//             <li key={s.id}
+//                 style={listItemStyles}
+//                 onClick={removeStudent}>
+//                 {s.name}
+//             </li>)
+//     })
+//     return (
+//         <ol>
+//             {studentsList}
+//         </ol>
 //
-// console.log(newState.length === 2)
+//     )
+// }
 //
 //
-// // Что нужно написать вместо XXX, чтобы корректно удалить трек и в консоли увидеть true?
-//answ:track.id !== action.trackId
+// ReactDOM.render(<div>
+//         <Provider store={store}>
+//             <StudentList/>
+//         </Provider>
+//     </div>,
+//     document.getElementById('root')
+// )
+//
+// // Что нужно написать вместо XXX, YYY и ZZZ, чтобы при клике по имени студент
+// // удалялся из списка? Напишите через пробел.
+//
 //
 //            <h3>7 вопрос</h3>
-//type StateType = {
-//     volume: number // in percents
-//     trackUrl: string // 'https://blabla.com/track01.mp3',
-//     currentPlayPosition: number // milliseconds,
-//   }
-//
-// export const reducer = (state: StateType, action: any) => {
-//     switch (action.type) {
-//         case XXX:
-//             return {
-//                 ...state,
-//                 trackUrl: action.url
-//             }
-//         case YYY:
-//             return {
-//                 ...state,
-//                 volume: 0
-//             }
-//         case ZZZ:
-//             return {
-//                 ...state,
-//                 currentPlayPosition: 0
-//             }
-//         default:
-//             return state
-//     }
-// }
-//
-// const muteTrackAC = () => ({type: 'TRACK-MUTED'})
-// const changeTrackAC = (url: string) => ({type: 'TRACK-URL-CHANGED', url})
-// // перемотатьНаНачало:
-// const rewindToStart = () => ({type: 'TRACK-REWOUND-TO-START'})
-//
-// // Какие типы должны быть вместо XXX, YYY и ZZZ?
-// // Ответ дать через пробел, например:   'BLABLA' 'HEYНЕY' 'HIPHOP'
 //
 //
 //

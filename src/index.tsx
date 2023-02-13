@@ -21,157 +21,166 @@
 //
 
 
-import axios from 'axios'
-import React, {useEffect, useState} from 'react'
+import {useFormik} from 'formik';
+import React from 'react'
+import {Provider, TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import ReactDOM from 'react-dom/client';
+import {BrowserRouter, Navigate, Route, Routes, useNavigate} from 'react-router-dom'
+import axios from 'axios';
+import {applyMiddleware, combineReducers, legacy_createStore as createStore} from 'redux';
+import thunk, {ThunkAction, ThunkDispatch} from 'redux-thunk';
 
-// TYPES
-type ProductType = {
-    id: string
-    title: string
-    description: string
-    price: number
+
+// Types
+type LoginFieldsType = {
+    email: string
+    password: string
 }
 
-type FilmType = {
-    id: number
-    nameOriginal: string
-    description: string
-    ratingImdb: number
-}
-
-type ProductsResponseType = {
-    total: number
-    messages: string[]
-    page: number
-    pageCount: number
-    data: ProductType[]
-}
-
-type FilmsResponseType = {
-    total: number
-    messages: string[]
-    page: number
-    pageCount: number
-    data: FilmType[]
-}
-
-type CommonResponseType<T = []> = {
-    total: number
-    messages: string[]
-    page: number
-    pageCount: number
-    data: T
-}
-
-// Api
+// API
 const instance = axios.create({baseURL: 'https://exams-frontend.kimitsu.it-incubator.ru/api/'})
 
 const api = {
-    getProducts() {
-        return instance.get<CommonResponseType>('products')
+    login(data: LoginFieldsType) {
+        return instance.post('auth/login', data)
     },
-    getFilms() {
-        return instance.get<CommonResponseType>('films')
+}
+
+
+// Reducer
+const initState = {
+    isLoading: false,
+    error: null as string | null,
+    isLoggedIn: false,
+}
+
+type InitStateType = typeof initState
+
+const appReducer = (state: InitStateType = initState, action: ActionsType): InitStateType => {
+    switch (action.type) {
+        case 'APP/SET-IS-LOGGED-IN':
+            return {...state, isLoggedIn: action.isLoggedIn}
+        case 'APP/IS-LOADING':
+            return {...state, isLoading: action.isLoading}
+        case 'APP/SET-ERROR':
+            return {...state, error: action.error}
+        default:
+            return state
     }
 }
 
+// Actions
+const setIsLoggedIn = (isLoggedIn: boolean) => ({type: 'APP/SET-IS-LOGGED-IN', isLoggedIn} as const)
+const setLoadingAC = (isLoading: boolean) => ({type: 'APP/IS-LOADING', isLoading} as const)
+const setError = (error: string | null) => ({type: 'APP/SET-ERROR', error} as const)
+type ActionsType =
+    | ReturnType<typeof setIsLoggedIn>
+    | ReturnType<typeof setLoadingAC>
+    | ReturnType<typeof setError>
+
+
+// Thunk
+const loginTC = (values: LoginFieldsType): AppThunk => (dispatch) => {
+    dispatch(setLoadingAC(true))
+    api.login(values)
+        .then((res) => {
+            dispatch(setIsLoggedIn(true))
+            alert('Вы залогинились успешно')
+        })
+        .catch((e) => {
+            dispatch(setError(e.response.data.errors))
+        })
+        .finally(() => {
+            dispatch(setLoadingAC(false))
+            setTimeout(() => {
+                dispatch(setError(null))
+            }, 3000)
+        })
+}
+
+// Store
+const rootReducer = combineReducers({
+    app: appReducer,
+})
+
+const store = createStore(rootReducer, applyMiddleware(thunk))
+type RootState = ReturnType<typeof store.getState>
+type AppDispatch = ThunkDispatch<RootState, unknown, ActionsType>
+type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, ActionsType>
+const useAppDispatch = () => useDispatch<AppDispatch>()
+const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+
+
+// Loader
+export const Loader = () => {
+    return <h1>Loading ...</h1>
+}
+
+// Profile
+export const Profile = () => {
+    return <h2>😎 Profile</h2>
+}
+
+// Login
+export const Login = () => {
+
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+
+    const error = useAppSelector(state => state.app.error)
+    const isLoading = useAppSelector(state => state.app.isLoading)
+    const isLoggedIn = useAppSelector(state => state.app.isLoggedIn)
+
+    const formik = useFormik({
+        initialValues: {
+            email: 'darrell@gmail.com',
+            password: '123',
+        },
+        onSubmit: values => {
+            dispatch(loginTC(values))
+        }
+    });
+    if (isLoggedIn) {
+        return <Navigate to={'/profile'}/>
+    }
+    return (
+        <div>
+            {!!error && <h2 style={{color: 'red'}}>{error}</h2>}
+            {isLoading && <Loader/>}
+            <form onSubmit={formik.handleSubmit}>
+                <div>
+                    <input placeholder={'Введите email'}
+                           {...formik.getFieldProps('email')}/>
+                </div>
+                <div>
+                    <input type={'password'}
+                           placeholder={'Введите пароль'}
+                           {...formik.getFieldProps('password')}/>
+                </div>
+                <button type="submit">Залогиниться</button>
+            </form>
+        </div>
+    );
+}
 
 // App
-const App = () => {
+export const App = () => {
     return (
-        <>
-            <h1>🛒 Products && 🎦 Films</h1>
-            <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
-                <Products/>
-                <Films/>
-            </div>
-        </>
+        <Routes>
+            <Route path={''} element={<Login/>}/>
+            <Route path={'profile'} element={<Profile/>}/>
+        </Routes>
     )
 }
-
-const Products = () => {
-
-    const [products, setProducts] = useState<ProductType[]>([])
-
-    useEffect(() => {
-        api.getProducts()
-            .then((res) => setProducts(res.data.data))
-    }, [])
-
-    return (
-        <div style={{width: '45%'}}>
-            <h2>🛒 Products</h2>
-            <div>
-                {
-                    products.map(p => {
-                        return (
-                            <div key={p.id}>
-                                <b>{p.title}</b>
-                                <p>{p.description}</p>
-                                <p>💵 {p.price} $</p>
-                            </div>
-                        )
-                    })
-                }</div>
-        </div>
-    )
-}
-
-const Films = () => {
-
-    const [films, setFilms] = useState<FilmType[]>([])
-
-    useEffect(() => {
-        api.getFilms()
-            .then((res) => setFilms(res.data.data))
-    }, [])
-
-    return (
-        <div style={{width: '45%'}}>
-            <h2>🎦 Films</h2>
-            <div>
-                {
-                    films.map(f => {
-                        return (
-                            <div key={f.id}>
-                                <b>{f.nameOriginal}</b>
-                                <p>{f.description}</p>
-                                <p>⭐ {f.ratingImdb} </p>
-                            </div>
-                        )
-                    })
-                }</div>
-        </div>
-    )
-}
-
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(<App/>)
+root.render(<Provider store={store}><BrowserRouter><App/></BrowserRouter></Provider>)
+
 
 // 📜 Описание:
-// При запуске проекта на экране вы увидите 2 списка: Products и Films.
-// С ними все хорошо, но обратите внимание на типизацию ответов с сервера ProductsResponseType и FilmsResponseType.
-// Дублирование типов на лицо.
-// Ваша задача написать дженериковый тип CommonResponseType и заменить им дублирующие типы.
-// Очередность свойств в типах менять запрещено (по причине что нам будет тяжело перебрать все правильные варианты :) )
-// Параметр тип назовите буквой T
-//
-// В качестве ответа нужно скопировать полностью рабочий дженериковый тип CommonResponseType
-//
-// 🖥 Пример ответа:
-// type CommonResponseType = {
-//   total: T
-//   messages: T[]
-//   page: T
-//   pageCount: T
-//   data: T[]
-// }
+// ❗ Email и password менять не надо. Это просто тестовые данные с которыми будет происходить успешный запрос.
+// Нажмите на кнопку "Залогиниться" и вы увидели alert с успешным сообщением
+// Задача: при успешной логинизации, редиректнуть пользователя на страницу Profile.
 
-
-
-
-
-
-
+// Напишите правильную строку кода
+// 🖥 Пример ответа:  console.log('If login => redirect to profile')

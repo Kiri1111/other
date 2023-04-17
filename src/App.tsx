@@ -5,6 +5,8 @@ import s from './App.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {RootReducerType} from "./store";
 import {changeConditionAC} from "./VisionReducer";
+import {MainPage} from "./firstTest/ui/mainPage";
+import {Header} from "./firstTest/ui/Header";
 
 const App = () => {
     const dispatch = useDispatch()
@@ -15,6 +17,8 @@ const App = () => {
     return (
 
         <div className={s.app}>
+            <Header/>
+            <MainPage/>
         </div>
     );
 };

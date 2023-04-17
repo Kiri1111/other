@@ -5,7 +5,6 @@ import s from './App.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {RootReducerType} from "./store";
 import {changeConditionAC} from "./VisionReducer";
-import {Comp} from "./Debounce/newComponent/comp";
 
 const App = () => {
     const dispatch = useDispatch()
@@ -16,13 +15,6 @@ const App = () => {
     return (
 
         <div className={s.app}>
-            {/*<button className={vision ? s.buttonA : s.buttonB} onClick={changeVisionHandler}>Change counter</button>*/}
-            {/*{vision*/}
-            {/*    ? <CounterTypeA/>*/}
-            {/*    : <CounterTypeB/>*/}
-
-            {/*}*/}
-            <Comp/>
         </div>
     );
 };

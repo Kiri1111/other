@@ -7,6 +7,7 @@ import {RootReducerType} from "./store";
 import {changeConditionAC} from "./VisionReducer";
 import {MainPage} from "./firstTest/ui/mainPage";
 import {Header} from "./firstTest/ui/Header";
+import {TestRecaptcha} from "./recaptcha/testRecaptcha";
 
 const App = () => {
     const dispatch = useDispatch()
@@ -14,12 +15,13 @@ const App = () => {
     const changeVisionHandler = () => {
         dispatch(changeConditionAC())
     }
-    return (
-
-        <div className={s.app}>
-            <Header/>
-            <MainPage/>
-        </div>
+    return (<>
+            <TestRecaptcha/>
+            <div className={s.app}>
+                <Header/>
+                <MainPage/>
+            </div>
+        </>
     );
 };
 

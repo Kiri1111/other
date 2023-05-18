@@ -59,6 +59,17 @@ function alternate(n, firstValue, secondValue) {
     return resArr
 }
 
+Array.prototype.remove_ = function (integer_list, values_list) {
+    for (let i = 0; i < values_list.length; i++) {
+        return values_list[i]
+    }
+}
+
+Array.prototype.remove_ = function (integer_list, values_list) {
+
+    return integer_list.filter(el => el !== values_list.map(el => el))
+}
+
 // function alternate(n, firstValue, secondValue) {
 //     let resArr = []
 //     let i = 0
@@ -73,3 +84,47 @@ function alternate(n, firstValue, secondValue) {
 function duplicates(arr) {
     return arr.filter((el, index, array) => array.indexOf(el) !== index)
 }
+
+const numbers = [1, 45, 66, 2, 4, 6, -2, -10, -100, 100]
+let minValue = numbers[0]
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] < minValue) {
+        minValue = numbers[i]
+    }
+}
+console.log(minValue)
+
+const factorial = (n) => {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial(n - 1)
+    }
+}
+
+// function foo() {
+//     console.log(this.name);
+// }
+//
+// let a = { name: 'Dima' };
+// let b = { name: 'Viktor' };
+//
+// const bindedFooA = foo.bind(a);
+// const bindedFooB = foo.bind(b);
+//
+// bindedFooA(); // 'Dima'
+// bindedFooB(); // 'Viktor'
+//
+//
+//     function foo2(age, city) {
+//         console.log(`${this.name}, ${age}, ${city}`);
+//     }
+//
+// let a = { name: 'Dima' };
+// let b = { name: 'Viktor' };
+//
+// const bindedFooA = foo2.bind(a, 30);
+// const bindedFooB = foo2.bind(b, 18);
+//
+// bindedFooA('Tbilisi'); // Dima, 30, Tbilisi
+// bindedFooB('Minsk'); // 'Viktor, 18, Minsk

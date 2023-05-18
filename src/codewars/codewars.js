@@ -128,3 +128,32 @@ const factorial = (n) => {
 //
 // bindedFooA('Tbilisi'); // Dima, 30, Tbilisi
 // bindedFooB('Minsk'); // 'Viktor, 18, Minsk
+
+
+function isDivisible(n, x, y) {
+    return n % x === 0 && n % y === 0
+}
+
+function reverseWords(str) {
+    return str.split(' ').reverse().join(' ')
+}
+
+function _numberToPower(number, power) {
+    let total = 1;
+    for (let i = 1; i <= power; i++) {
+        total = total * number;
+    }
+    return total;
+}
+
+
+function numberToPower(number, power) {
+    let total = 1;
+    let i = 1;
+    while (i <= power) {
+        total = total * number;
+        i++
+    }
+    return total;
+}
+

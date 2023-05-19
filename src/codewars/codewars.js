@@ -157,3 +157,29 @@ function numberToPower(number, power) {
     return total;
 }
 
+function oddCount(n) {
+    return Math.floor(n / 2)
+}
+
+
+class Kata {
+    static getVolumeOfCuboid(length, width, height) {
+        return length * width * height
+    }
+}
+
+function nthEven(n) {
+    let i = 0
+    let num = 0
+    while (i < n) {
+        i % 2 === 0 ? num = i : null
+    }
+    return num
+}
+
+function getCount(str) {
+    const arr = str.split(' ')
+    const coin = 0
+    arr.map(el => el === 'a' || el === 'e' || el === 'i' || el === 'o' || el === 'u' ? coin + 1 : null)
+    return coin;
+}

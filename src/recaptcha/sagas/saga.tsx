@@ -1,6 +1,10 @@
-// export function* rootSaga() {
-//     yield all([fork(todoSaga)]);
-// }
+import {fork} from "child_process";
+import {all} from "axios";
+
+export function* rootSaga() {
+    yield all([]);
+}
+
 //
 // import {createSelector} from "reselect";
 //

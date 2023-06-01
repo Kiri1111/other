@@ -213,5 +213,30 @@
         }
     }
 
+
+    // function digitize(n) {
+    //     n += ''
+    //     const result = []
+    //     for (let l = 0; l < Math.ceil(n.length / 2); l++) {
+    //         let r = n.length - 1 - l
+    //         result[l] = n.charAt(r) << 0
+    //         result[r] = n.charAt(l) << 0
+    //
+    //     }
+    //     return result
+
+
+    function distinct(a) {
+        let b = a.filter((el, i) => {
+            return a.indexOf(el) === i;
+        })
+        return b
+    }
+
+
+    // function distinct(a) {
+    //     return a.reduce((a, c) => a.includes(c) ? a : [...a, c], []);
+    // }
+    
 </script>
 

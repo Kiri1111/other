@@ -226,17 +226,78 @@
     //     return result
 
 
-    function distinct(a) {
-        let b = a.filter((el, i) => {
-            return a.indexOf(el) === i;
-        })
-        return b
-    }
+    // function distinct(a) {
+    //     let b = a.filter((el, i) => {
+    //         return a.indexOf(el) === i;
+    //     })
+    //     return b
+    // }
 
 
     // function distinct(a) {
     //     return a.reduce((a, c) => a.includes(c) ? a : [...a, c], []);
     // }
-    
+
+
+    // function regularMonths(currMonth) {
+    //     const [month, year] = currMonth.split("-");
+    //     const date = new Date();
+    //     let result = [Number(month), Number(year)];
+    //
+    //     function updateDate() {
+    //         date.setDate(1);
+    //         date.setMonth(result[0]);
+    //         date.setYear(result[1]);
+    //     }
+    //
+    //     while(true) {
+    //         updateDate(date)
+    //
+    //         if (date.getDay() === 1) {
+    //             break;
+    //         }
+    //
+    //         result[0]++;
+    //
+    //         if (result[0] >= 12) {
+    //             result[0] = 0;
+    //             result[1]++;
+    //         }
+    //     }
+    //
+    //     return `${String(result[0] + 1).padStart(2, "0")}-${result[1]}`;
+    // }
+
+
+    //    Array.prototype.toString = function() {
+    // let str = '';
+    // this.forEach(function(item){
+    //     switch(typeof item) {
+    //         case 'number':
+    //         case 'boolean': str += item + ','; break;
+    //         case 'string': str += "'" + item + "'" + ','; break;
+    //         case 'object': str += item.toString() + ','; break;
+    //     }
+    // });
+    //
+    // return '[' + str.slice(0, -1) + ']';
+    // };
+
+
+    // function abbreviate(string) {
+    //     return string.replace(/\w*/g,function(word) {
+    //         if (word.length >= 4)
+    //             return word[0] + (word.length - 2) + word.slice(-1);
+    //         else
+    //             return word;
+    //     });
+    // }
+
+    // function abbreviate(string) {
+    //     return string.replace(/\w{4,}/g, function(w){
+    //         return w[0] + (w.length - 2) + w.slice(-1);
+    //     });
+    // }
+
 </script>
 

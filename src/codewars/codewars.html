@@ -368,5 +368,106 @@
     // }
 
 
+    // function pendulum(a) {
+    //     let list = [], arr = [];
+    //     a.sort((b, c) => b - c).forEach((e, i) => (i % 2 ? arr : list).push(e));
+    //     return list.reverse().concat(arr);
+    // }
+    // function keepOrder(arr, val) {
+    //     for(let i = 0; i < arr.length; i++){
+    //         if(!i && val <= arr[i]) return 0
+    //         if(arr[i-1] < val && val <= arr[i]) return i
+    //     }
+    //     return arr.length
+    // }
+
+    // const foo = () => {
+    //     for (let i = 0; i < 3; i++)
+    //         setTimeout(() => console.log(i), 2000)//0,1,2
+    // }
+    // foo()
+
+    // function findMinMax(arr) {
+    //     let min = arr[0];
+    //     let max = arr[0];
+    //
+    //     for (let i = 1; i < arr.length; i++) {
+    //         const item = arr[i]
+    //
+    //         if (item < min) {
+    //             min = item;
+    //         } else if (item > max) {
+    //             max = item;
+    //         }
+    //     }
+    //
+    //     return {min, max};
+    // }
+    //
+    //
+    // const numbersss = [5, 1, 3, 412, 12, 512];
+    // const result = findMinMax(numbersss);
+
+
+    // const people = [
+    //     {
+    //         name: 'Alex',
+    //         city: 'Moscow',
+    //     },
+    //     {
+    //         name: 'Ivan',
+    //         city: 'Moscow',
+    //     },
+    //     {
+    //         name: 'Joe',
+    //         city: 'New York'
+    //     },
+    //     {
+    //         name: 'Johan',
+    //         city: 'Berlin'
+    //     },
+    // ]
+    //
+    // const groupByCity = (array) => {
+    //     const moscow = []
+    //     const berlin = []
+    //     const newYork = []
+    //     for (let i = 0; i > array.length; i++) {
+    //         if (array[i].city === 'Moscow') {
+    //             moscow.push(array[i])
+    //         } else if (array[i].city === 'New York') {
+    //             newYork.push(array[i])
+    //         } else {
+    //             berlin.push(array[i])
+    //         }
+    //     }
+    //     return {
+    //         'Moscow': moscow,
+    //         'New York': newYork,
+    //         'Berlin': berlin
+    //     }
+    // }
+    //  console.log(groupByCity(people))
+    //
+    //
+    // const _groupByCity = (array) => {
+    //     const result = {}
+    //
+    //     for (const item of array) {
+    //         const {city, name} = item
+    //
+    //         if (!result[city]) {
+    //             result[city] = name
+    //         } else if (Array.isArray(result[city])) {
+    //             result[city].push(name)
+    //         } else {
+    //             result[city] = [result[city], name]
+    //         }
+    //     }
+    //
+    //     return result
+    // }
+    //
+    // console.log(_groupByCity(people))
 </script>
 
